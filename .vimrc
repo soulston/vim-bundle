@@ -13,6 +13,10 @@ Plugin 'garbas/vim-snipmate'
 ""Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
+" System tools
+Plugin 'kien/ctrlp.vim'
+map <leader>t <C-p>   " Open with <leader>t.
+
 " Programming helpers
 Plugin 'csexton/trailertrash.vim'
 Plugin 'tpope/vim-surround'
@@ -228,8 +232,6 @@ let g:airline_powerline_fonts=1                     " Powerline in macvim.
 
 " Custom mappings
 nmap <S-Enter> O<Esc>   " Enter a new line without entering insert mode.
-nmap H 0<Esc>           " Set the H as start of line.
-nmap L $<Esc>           " Set the L as end of line.
 
 " move cursor in Insert Mode
 inoremap <C-h> <C-o>h
