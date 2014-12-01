@@ -15,14 +15,12 @@ Plugin 'honza/vim-snippets'
 
 " System tools
 Plugin 'kien/ctrlp.vim'
-map <leader>t <C-p>   " Open with <leader>t.
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Programming helpers
 Plugin 'csexton/trailertrash.vim'
 Plugin 'tpope/vim-surround'
-""Plugin 'terryma/vim-multiple-cursors'
 Plugin 'adinapoli/vim-markmultiple'
-""Plugin 'scrooloose/nerdcommenter'
 Plugin 'tomtom/tcomment_vim'
 ""Plugin 'vim-scripts/closetag.vim'
 ""Plugin 'spf13/vim-autoclose'
@@ -34,6 +32,8 @@ Plugin 'tomtom/tcomment_vim'
 
 " UI
 Plugin 'bling/vim-airline'
+let g:airline_powerline_fonts=1                     " Powerline in macvim.
+
 ""Plugin 'bling/vim-bufferline'
 
 " Navigation
@@ -67,12 +67,6 @@ Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
-""Plugin 'morhetz/gruvbox'
-""Plugin 'nanotech/jellybeans.vim'
-""Plugin 'sjl/badwolf'
-""Plugin 'vim-scripts/peaksea'
-""Plugin 'jonathanfilip/vim-lucius'
-""Plugin 'twerth/ir_black'
 
 " All of your Plugins must be added before the following line
 call vundle#end()               " required
@@ -225,10 +219,6 @@ if has("gui_running")
       set guifont=Inconsolata\ for\ Powerline:h15
     endif
 endif
-
-" Bundle settings
-let g:airline_powerline_fonts=1                     " Powerline in macvim.
-"let g:airline#extensions#bufferline#enabled = 1     " Bufferline on.
 
 " Custom mappings
 nmap <S-Enter> O<Esc>   " Enter a new line without entering insert mode.
