@@ -1,0 +1,32 @@
+## Installation:
+
+$ git clone git://github.com:soulston/vim-bundle.git ~/.vim
+
+$ mkdir -p .vim/bundle
+
+$ git clone git://github.com/gmarik/vundle.git .vim/bundle
+
+## Create sylinks:
+
+$ ln -s ~/.vim/.vimrc ~/.vimrc
+$ ln -s ~/.vim/.gvimrc ~/.gvimrc (if needed)
+
+
+## Plugins
+
+### vim-airline
+
+font issues:
+https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x
+
+## Colors
+
+http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
+
+
+## Mac specific
+
+Create alias for macvim to open macvim in the terminal
+alias mvi='mvim -v'
+alias vim='mvim -v'
+

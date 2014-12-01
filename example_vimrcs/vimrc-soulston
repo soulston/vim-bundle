@@ -1,0 +1,103 @@
+" .vimrc
+" @soulston
+"
+" Common help
+" Show/hide all characters
+" :set list / :set nolist
+
+" Bundles {{{
+
+"====[ Pathogen setup ]=====
+    runtime bundle/vim-pathogen/autoload/pathogen.vim
+" Bundle: tpope/vim-pathogen
+    call pathogen#infect()
+    call pathogen#helptags()
+
+"====[ General ]=====
+" Bundle: tpope/vim-sensible
+" Bundle: scrooloose/nerdcommenter
+
+"====[ Git ]=====
+" Bundle: tpope/vim-fugitive
+
+"====[ Display ]=====
+" Bundle: twerth/ir_black
+" Bundle: bling/vim-airline
+
+"====[ Tools ]=====
+" Bundle: soulston/vim-listtrans
+
+" }}}
+
+"====[ General fixes ]=====
+    syntax on
+    filetype plugin indent on
+    set encoding=utf-8
+    set autoindent
+    set expandtab
+    set softtabstop=2
+    set shiftwidth=2
+    set nopaste
+
+"====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
+    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+    set list
+
+"====[ Mode indications ]=====
+    set showmode
+    set showcmd
+
+"====[ Line numbers ]=====
+    set number
+
+"====[ Backspace for normal people ]=====
+    set backspace=indent,eol,start
+
+" Always show status
+    set laststatus=2
+
+"====[ Time out on key codes but not mappings. Basically this makes terminal Vim work sanely ]=====
+    set notimeout
+    set ttimeout
+    set ttimeoutlen=10
+
+"====[ Key remappings ]=====
+    let mapleader='\'
+    let maplocalleader='\'
+    " nnoremap  ;  :
+    " nnoremap  :  ;
+
+"====[ Colours scheme ]=====
+    colorscheme distinguished
+
+"====[ Set powerline fonrs for macvim ]=====
+    if has("gui_running")
+        let s:uname = system("uname")
+        if s:uname == "Darwin\n"
+            set guifont=Inconsolata\ for\ Powerline:h15
+        endif
+    endif
+
+"====[ vim-pathogen ]=====
+
+"====[ vim-airline ]=====
+    let g:airline_powerline_fonts=1
+
+"====[ soulston/vim-listtrans ]=====
+"    nmap :lt  :call ListTrans_toggle_format()<CR>
+"    vmap :lt  :call ListTrans_toggle_format('visual')<CR>
+
+"====[ Make the 81st column stand out ]=====
+    highlight ColorColumn ctermbg=magenta
+    call matchadd('ColorColumn', '\%81v', 100)
+
+"====[ Shortcut to rapidly toggle `set list` ]=====
+"    nmap <leader>l :set list!<CR>
+
+"====[ Use the same symbols as TextMate for tabstops and EOLs ]=====
+    set listchars=tab:▸\ ,eol:¬
+
+"====[ Invisible character colors ]=====
+    "highlight NonText guifg=#4a4a59
+    "highlight SpecialKey guifg=#4a4a59
+
