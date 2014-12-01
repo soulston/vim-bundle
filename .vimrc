@@ -7,14 +7,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " SnipMate
-""Plugin 'MarcWeber/vim-addon-mw-utils'
-""Plugin 'tomtom/tlib_vim'
-""Plugin 'garbas/vim-snipmate'
-""""Plugin 'SirVer/ultisnips'
-""Plugin 'honza/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+""Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " Programming helpers
 Plugin 'csexton/trailertrash.vim'
+""Plugin 'terryma/vim-multiple-cursors'
+Plugin 'adinapoli/vim-markmultiple'
 ""Plugin 'scrooloose/nerdcommenter'
 Plugin 'tomtom/tcomment_vim'
 ""Plugin 'vim-scripts/closetag.vim'
@@ -82,6 +84,23 @@ filetype plugin indent on       " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" General organisation of your .vimrc see http://dougblack.io/words/a-good-vimrc.html
+" Colors
+" Spaces And Tabs
+" UI Config
+" Searching
+" Folding
+" Custom Movements
+" Custom Leader
+" CtrlP Settings
+" Launch Config
+" Tmux Config
+" Autogroups
+" Backups
+" Custom Functions
+" Organization
+" Wrapping It Up
+
 " Syntax highlighting options
 set t_Co=256                                " 256 colors.
 syntax on                                   " Enable syntax highlighting.
@@ -115,6 +134,7 @@ set showcmd                                     " Show (partial) command keys in
 set ruler                                       " Show cursor position (line and column number).
 set number                                      " Show the line number for each line.
 set showmatch                                   " Show matching brackets/parentheses.
+set cursorline                                  " Show a dark bg on current line.
 "nmap <leader>l :set list!<CR>                   " Toggle 'set list'.
 set list                                        " Set tabs and eol characters.
 set listchars=tab:▸\ ,eol:¬                     " Set tabs and eol characters.
@@ -131,6 +151,7 @@ set history=1000                " Number of commands to remember.
 set backspace=indent,eol,start  " Backspace.
 set laststatus=2                " Always show status.
 set scrolloff=15                " Always show n lines around the cursor.
+set lazyredraw                  " redraw only when we need to.
 
 " Tabs and Indentation
 set expandtab             " Convert tabs to spaces.
@@ -166,7 +187,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Shortcut to clear search highlights.
-nmap <silent> <leader>/ :nohlsearch<CR>
+nmap <silent> <leader><space> :nohlsearch<CR>
 
 " Create a shortcut for saving a file with root permissions.
 cmap w!! w !sudo tee % >/dev/null
@@ -187,7 +208,10 @@ if exists('&undofile') && !&undofile
 endif
 
 " Edit your .vimrc file
-nnoremap <leader>ev :vsp $MYVIMRC<CR>   " type <leader>ev to edit the Vimrc.
+" edit vimrc/zshrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Set powerline fonts for macvim
 if has("gui_running")
@@ -200,3 +224,7 @@ endif
 " Bundle settings
 let g:airline_powerline_fonts=1                     " Powerline in macvim.
 "let g:airline#extensions#bufferline#enabled = 1     " Bufferline on.
+
+" Custom mappings
+nmap <S-Enter> O<Esc>   " Enter a new line without entering insert mode.
+
