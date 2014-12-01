@@ -15,6 +15,7 @@ Plugin 'honza/vim-snippets'
 
 " Programming helpers
 Plugin 'csexton/trailertrash.vim'
+Plugin 'tpope/vim-surround'
 ""Plugin 'terryma/vim-multiple-cursors'
 Plugin 'adinapoli/vim-markmultiple'
 ""Plugin 'scrooloose/nerdcommenter'
@@ -227,4 +228,11 @@ let g:airline_powerline_fonts=1                     " Powerline in macvim.
 
 " Custom mappings
 nmap <S-Enter> O<Esc>   " Enter a new line without entering insert mode.
+nmap H 0<Esc>           " Set the H as start of line.
+nmap L $<Esc>           " Set the L as end of line.
 
+" move cursor in Insert Mode
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
