@@ -55,6 +55,7 @@ Plugin 'bling/vim-airline'
 ""Plugin 'tpope/vim-fugitive'
 
 " Colorschemes
+Plugin vim-distinguished
 ""Plugin 'morhetz/gruvbox'
 ""Plugin 'nanotech/jellybeans.vim'
 ""Plugin 'altercation/vim-colors-solarized'
@@ -112,9 +113,6 @@ set clipboard=unnamed           " Always use the system keyboard.
 set pastetoggle=<F2>            " Set key command to use as the paste mode toggle.
 set history=1000                " Number of commands to remember.
 set backspace=indent,eol,start  " Backspace 
-set notimeout                   " Make vim work sanely
-set ttimeoutlen                 " Make vim work sanely
-set ttimeoutlen=10              " Make vim work sanely
 
 " Tabs and Indentation
 set expandtab             " Convert tabs to spaces.
