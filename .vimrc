@@ -14,10 +14,11 @@ Plugin 'gmarik/Vundle.vim'
 ""Plugin 'honza/vim-snippets'
 
 " Programming helpers
+Plugin 'csexton/trailertrash.vim'
+""Plugin 'scrooloose/nerdcommenter'
+Plugin 'tomtom/tcomment_vim'
 ""Plugin 'vim-scripts/closetag.vim'
 ""Plugin 'spf13/vim-autoclose'
-""Plugin 'tomtom/tcomment_vim'
-""Plugin 'csexton/trailertrash.vim'
 ""Plugin 'AndrewRadev/linediff.vim'
 """Plugin 'rstacruz/sparkup'
 ""Plugin 'chrismetcalf/vim-yankring'
@@ -26,6 +27,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " UI
 Plugin 'bling/vim-airline'
+""Plugin 'bling/vim-bufferline'
 
 " Navigation
 ""Plugin 'git://git.wincent.com/command-t.git'
@@ -55,28 +57,44 @@ Plugin 'bling/vim-airline'
 ""Plugin 'tpope/vim-fugitive'
 
 " Colorschemes
-Plugin vim-distinguished
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
 ""Plugin 'morhetz/gruvbox'
 ""Plugin 'nanotech/jellybeans.vim'
-""Plugin 'altercation/vim-colors-solarized'
 ""Plugin 'sjl/badwolf'
-""Plugin 'tomasr/molokai'
 ""Plugin 'vim-scripts/peaksea'
 ""Plugin 'jonathanfilip/vim-lucius'
 ""Plugin 'twerth/ir_black'
 
-call vundle#end()
-filetype plugin indent on
+" All of your Plugins must be added before the following line
+call vundle#end()               " required
+filetype plugin indent on       " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " Syntax highlighting options
-syntax on                         " Enable syntax highlighting.
-set background=dark               " Use a dark background with light text.
-se t_Co=256                       " 256 colors.
-" silent! colorscheme solarized     " Use the Solarized color scheme.
-silent! colorscheme distinguished " Use the Distinguished color scheme.
-set nocursorline                  " Don't highlight the screen line of the cursor.
-set nocursorcolumn                " Don't highlight the column of the cursor.
-autocmd BufEnter * :syntax sync fromstart " Set syntax sync to fromstart.
+set t_Co=256                                " 256 colors.
+syntax on                                   " Enable syntax highlighting.
+set background=dark                         " Use a dark background with light text.
+set nocursorline                            " Don't highlight the screen line of the cursor.
+set nocursorcolumn                          " Don't highlight the column of the cursor.
+autocmd BufEnter * :syntax sync fromstart   " Set syntax sync to fromstart.
+
+" Colour scheme
+"silent! colorscheme solarized               " Use the Solarized color scheme.
+"silent! colorscheme distinguished           " Use the Distinguished color scheme.
+silent! colorscheme molokai                 " Use the Molokai color scheme.
+
 
 " Files
 set encoding=utf-8        " Always edit in utf-8.
@@ -88,22 +106,20 @@ set wildmode=longest,list
 
 " Search
 set ignorecase            " Ignore case when using a search pattern.
-set smartcase             " Override 'ignorecase' when the pattern contains upper
-                          " case characters.
+set smartcase             " Override 'ignorecase' when the pattern contains upper case characters.
 set hlsearch              " Highlight all matches for the last used search pattern.
 set incsearch             " Find matches as you type the search pattern.
 
 " UI Information
-set showcmd                                 " Show (partial) command keys in the status line.
-set ruler                                   " Show cursor position (line and column number).
-set number                                  " Show the line number for each line.
-set showmatch                               " Show matching brackets/parentheses.
-highlight ColorColumn ctermbg=magenta       " Highlight 81st column
-call matchadd('ColorColumn', '\%81v', 100)  " Highlight 81st column
-nmap <leader>l :set list!<CR>               " Toggle `set list`
-set listchars=tab:▸\ ,eol:¬                 " Set tabs and eol characters
-"highlight NonText guifg=#4a4a59            " Colour special characters
-"highlight SpecialKey guifg=#4a4a59         " Colour special characters
+set showcmd                                     " Show (partial) command keys in the status line.
+set ruler                                       " Show cursor position (line and column number).
+set number                                      " Show the line number for each line.
+set showmatch                                   " Show matching brackets/parentheses.
+"nmap <leader>l :set list!<CR>                   " Toggle 'set list'.
+set list                                        " Set tabs and eol characters.
+set listchars=tab:▸\ ,eol:¬                     " Set tabs and eol characters.
+"highlight NonText guifg=#4a4a59                " Colour special characters.
+"highlight SpecialKey guifg=#4a4a59             " Colour special characters.
 
 " UI Behaviour
 set backspace=2                 " Use standard backspace behavior.
@@ -112,7 +128,9 @@ set linebreak                   " Break lines when appropriate.
 set clipboard=unnamed           " Always use the system keyboard.
 set pastetoggle=<F2>            " Set key command to use as the paste mode toggle.
 set history=1000                " Number of commands to remember.
-set backspace=indent,eol,start  " Backspace 
+set backspace=indent,eol,start  " Backspace.
+set laststatus=2                " Always show status.
+set scrolloff=15                " Always show n lines around the cursor.
 
 " Tabs and Indentation
 set expandtab             " Convert tabs to spaces.
@@ -132,8 +150,14 @@ cnoreabbrev WQ wq
 " Change the command prefix to avoid pressing shift too much.
 noremap ; :
 
-" Change the leader to ",".
-" let mapleader=","
+" Let 'jj' escape out of INSERT mode.
+inoremap jj <Esc>
+
+" Change the leader
+let mapleader=","
+"nnoremap <Space> <nop>
+"let mapleader = "\<Space>"
+
 
 " Easier split navigation.
 map <C-h> <C-w>h
@@ -162,7 +186,10 @@ if exists('&undofile') && !&undofile
   set undofile
 endif
 
-" Set powerline fonrs for macvim
+" Edit your .vimrc file
+nnoremap <leader>ev :vsp $MYVIMRC<CR>   " type <leader>ev to edit the Vimrc.
+
+" Set powerline fonts for macvim
 if has("gui_running")
   let s:uname = system("uname")
     if s:uname == "Darwin\n"
@@ -171,6 +198,5 @@ if has("gui_running")
 endif
 
 " Bundle settings
-let g:airline_powerline_fonts=1         " Powerline in macvim
-nmap <leader>l :set list!<CR>           " Shortcut to toggle 'set list'
-
+let g:airline_powerline_fonts=1                     " Powerline in macvim.
+"let g:airline#extensions#bufferline#enabled = 1     " Bufferline on.

@@ -29,3 +29,6 @@ Create alias for macvim to open macvim in the terminal
 alias mvi='mvim -v'
 alias vim='mvim -v'
 
+## Switcing
+
+http://benfrain.com/learning-vim-front-end-coding-month/

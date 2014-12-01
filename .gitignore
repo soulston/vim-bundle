@@ -1,7 +1,7 @@
 bundle/
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
-*.un~
+*.undo
 Session.vim
 .netrwhist
 *~
