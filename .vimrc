@@ -1,4 +1,5 @@
 set nocompatible
+filetype on
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -22,6 +23,7 @@ Plugin 'csexton/trailertrash.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'adinapoli/vim-markmultiple'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-abolish'
 ""Plugin 'vim-scripts/closetag.vim'
 ""Plugin 'spf13/vim-autoclose'
 ""Plugin 'AndrewRadev/linediff.vim'
@@ -112,7 +114,6 @@ autocmd BufEnter * :syntax sync fromstart   " Set syntax sync to fromstart.
 "silent! colorscheme solarized               " Use the Solarized color scheme.
 "silent! colorscheme distinguished           " Use the Distinguished color scheme.
 silent! colorscheme molokai                 " Use the Molokai color scheme.
-
 
 " Files
 set encoding=utf-8        " Always edit in utf-8.
@@ -236,3 +237,7 @@ nnoremap dl ddO<esc>
 " Move to start and end in normal mode
 nnoremap H 0
 nnoremap L $
+
+" Abbreviations - now using tpope/vim-abolish.
+:iabbrev adn and
+
