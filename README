@@ -16,7 +16,9 @@ $ ln -s ~/.vim/.gvimrc ~/.gvimrc (if needed)
 
 Some useful aliases for .bashprofile:
 
-alias ll='ls -la'
+chmod 600 ~/.bash_profile
+echo "alias ll='ls -la'" >> ~/.bash_profile
+source ~/.bash_profile
 
 Vundle (from vim):
 :PluginInstall
