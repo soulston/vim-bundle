@@ -186,7 +186,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Shortcut to clear search highlights.
-nmap <silent> <leader><space> :nohlsearch<CR>
+nnoremap <silent> <leader><space> :nohlsearch<CR>
 
 " Create a shortcut for saving a file with root permissions.
 cmap w!! w !sudo tee % >/dev/null
@@ -221,10 +221,18 @@ if has("gui_running")
 endif
 
 " Custom mappings
-nmap <S-Enter> O<Esc>   " Enter a new line without entering insert mode.
+" Enter a new line without entering insert mode.
+nnoremap <S-Enter> O<Esc>
 
 " move cursor in Insert Mode
 inoremap <C-h> <C-o>h
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
+
+" Delete the current line but don't move other lines.
+nnoremap dl ddO<esc>
+
+" Move to start and end in normal mode
+nnoremap H 0
+nnoremap L $
