@@ -4,6 +4,17 @@ $ git clone git://github.com:soulston/vim-bundle.git ~/.vim
 $ mkdir -p .vim/bundle
 $ git clone git://github.com/gmarik/vundle.git .vim/bundle
 
+OR on a remote box with no key:
+
+$ git clone https://github.com:soulston/vim-bundle.git ~/.vim
+$ mkdir -p ~/.vim/bundle
+$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
+
+Some useful aliases:
+
+alias ll='ls -la'
+
+
 Create sylinks:
 $ ln -s ~/.vim/.vimrc ~/.vimrc
 $ ln -s ~/.vim/.gvimrc ~/.gvimrc (if needed)
@@ -21,7 +32,6 @@ https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x
 ## Colors
 
 http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
-
 
 ## Mac specific
 
