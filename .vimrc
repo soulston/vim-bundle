@@ -15,7 +15,7 @@ Plugin 'honza/vim-snippets'
 
 " System tools
 Plugin 'kien/ctrlp.vim'
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim            " Required
 
 " Programming helpers
 Plugin 'csexton/trailertrash.vim'
