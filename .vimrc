@@ -114,6 +114,8 @@ autocmd BufEnter * :syntax sync fromstart   " Set syntax sync to fromstart.
 "silent! colorscheme solarized               " Use the Solarized color scheme.
 "silent! colorscheme distinguished           " Use the Distinguished color scheme.
 silent! colorscheme molokai                 " Use the Molokai color scheme.
+" Quickly switch colors
+:cabbrev cs colorscheme
 
 " Files
 set encoding=utf-8        " Always edit in utf-8.
@@ -128,7 +130,7 @@ set ignorecase            " Ignore case when using a search pattern.
 set smartcase             " Override 'ignorecase' when the pattern contains upper case characters.
 set hlsearch              " Highlight all matches for the last used search pattern.
 set incsearch             " Find matches as you type the search pattern.
-
+set smartcase             " ...Except if we input a capital letter
 " UI Information
 set showcmd                                     " Show (partial) command keys in the status line.
 set ruler                                       " Show cursor position (line and column number).
@@ -171,8 +173,9 @@ cnoreabbrev WQ wq
 " Change the command prefix to avoid pressing shift too much.
 noremap ; :
 
-" Let 'jj' escape out of INSERT mode.
+" Let 'jj' and 'jk' escape out of INSERT mode.
 inoremap jj <Esc>
+inoremap jk <Esc>
 
 " Change the leader
 let mapleader=","
@@ -237,6 +240,10 @@ nnoremap dl ddO<esc>
 " Move to start and end in normal mode
 nnoremap H 0
 nnoremap L $
+
+" Use netrw instead of NerdTree
+let g:netrw_liststyle=3
+map <leader>t :E<cr>
 
 " Abbreviations - now using tpope/vim-abolish.
 :iabbrev adn and
