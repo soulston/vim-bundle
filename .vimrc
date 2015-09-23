@@ -1,5 +1,4 @@
-set nocompatible
-filetype on
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -135,9 +134,14 @@ set smartcase             " ...Except if we input a capital letter
 set showcmd                                     " Show (partial) command keys in the status line.
 set ruler                                       " Show cursor position (line and column number).
 set number                                      " Show the line number for each line.
+" Show/Hide line numbers - useful for copy to system clipboard.
+" nmap <leader>hl :set nonumber<CR>
+" nmap <leader>sl :set number<CR>
 set showmatch                                   " Show matching brackets/parentheses.
 set cursorline                                  " Show a dark bg on current line.
-"nmap <leader>l :set list!<CR>                   " Toggle 'set list'.
+set showcmd                                     " Show current command in bottom right of display
+" Toggle hidden characters.
+nmap <leader>l :se list!<CR>
 set list                                        " Set tabs and eol characters.
 set listchars=tab:▸\ ,eol:¬                     " Set tabs and eol characters.
 "highlight NonText guifg=#4a4a59                " Colour special characters.
@@ -154,6 +158,13 @@ set backspace=indent,eol,start  " Backspace.
 set laststatus=2                " Always show status.
 set scrolloff=15                " Always show n lines around the cursor.
 set lazyredraw                  " redraw only when we need to.
+"Bubble single lines (kicks butt)
+"http://vimcasts.org/episodes/bubbling-text/
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+"Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
 
 " Tabs and Indentation
 set expandtab             " Convert tabs to spaces.
@@ -171,7 +182,7 @@ cnoreabbrev Q q
 cnoreabbrev WQ wq
 
 " Change the command prefix to avoid pressing shift too much.
-noremap ; :
+nnoremap <space> :
 
 " Let 'jj' and 'jk' escape out of INSERT mode.
 inoremap jj <Esc>
