@@ -1,14 +1,17 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+" SnipMate
+""Plugin 'MarcWeber/vim-addon-mw-utils'
+""Plugin 'tomtom/tlib_vim'
+""Plugin 'garbas/vim-snipmate'
+""Plugin 'SirVer/ultisnips'
+""Plugin 'honza/vim-snippets'
 
 " System tools
 Plugin 'kien/ctrlp.vim'
@@ -20,23 +23,44 @@ Plugin 'tpope/vim-surround'
 Plugin 'adinapoli/vim-markmultiple'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-abolish'
+""Plugin 'vim-scripts/closetag.vim'
+""Plugin 'spf13/vim-autoclose'
+""Plugin 'AndrewRadev/linediff.vim'
+"""Plugin 'rstacruz/sparkup'
+""Plugin 'chrismetcalf/vim-yankring'
+""Plugin 'ervandew/supertab'
+""Plugin 'godlygeek/tabular'
 
 " UI
 Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts=1
+
+""Plugin 'bling/vim-bufferline'
+
+" Navigation
+""Plugin 'git://git.wincent.com/command-t.git'
+""Plugin 'majutsushi/tagbar'
+""Plugin 'bogado/file-line'
+
+" Drupal
+""Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal'}
+""Plugin 'tanarurkerem/drupal-snippets'
+
+" Services
+""Plugin 'mattn/webapi-vim'
+""Plugin 'mattn/gist-vim'
+""Plugin 'tpope/vim-fugitive'
 
 " Colorschemes
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 
-
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()               " required
+filetype plugin indent on       " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
 
 " Brief help
 " :PluginList       - lists configured plugins

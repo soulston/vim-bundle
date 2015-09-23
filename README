@@ -23,6 +23,10 @@ source ~/.bash_profile
 Vundle (from vim):
 :PluginInstall
 
+OR
+
+vim +PluginInstall
+
 ## Plugins
 
 ### vim-airline
